@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Update Todo</title>
+  </head>
+  <body>
+    <h1>Update Todo</h1>
+    <form action="{% url 'update_todo' todo.id %}" method="post">
+      {% csrf_token %}
+      <label for="title_name">Title:</label><br />
+      <input
+        type="text"
+        id="title_name"
+        name="title_name"
+        value="{{ todo.title_name }}"
+      /><br />
+      <label for="todo_description">Description:</label><br />
+      <textarea id="todo_description" name="todo_description">
+{{ todo.todo_description }}</textarea
+      ><br />
+      <label for="todo_deadline">Deadline:</label><br />
+      <input
+        type="date"
+        id="todo_deadline"
+        name="todo_deadline"
+        value="{{ todo.todo_deadline }}"
+      /><br />
+      <input type="submit" value="Update Todo" />
+    </form>
+    <a href="{% url 'todo_list' %}">Back to Todo List</a>
+  </body>
+</html>

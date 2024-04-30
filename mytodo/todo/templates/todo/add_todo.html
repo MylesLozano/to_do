@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Add Todo</title>
+  </head>
+  <body>
+    <h1>Add Todo</h1>
+    <form action="{% url 'add_todo' %}" method="post">
+      {% csrf_token %}
+      <label for="title_name">Title:</label><br />
+      <input type="text" id="title_name" name="title_name" /><br />
+      <label for="todo_description">Description:</label><br />
+      <textarea id="todo_description" name="todo_description"></textarea><br />
+      <label for="todo_deadline">Deadline:</label><br />
+      <input type="date" id="todo_deadline" name="todo_deadline" /><br />
+      <input type="submit" value="Add Todo" />
+    </form>
+    <a href="{% url 'todo_list' %}">Back to Todo List</a>
+  </body>
+</html>
