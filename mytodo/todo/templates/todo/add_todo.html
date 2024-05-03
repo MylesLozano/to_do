@@ -3,19 +3,48 @@
   <head>
     <meta charset="UTF-8" />
     <title>Add Todo</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    <h1>Add Todo</h1>
-    <form action="{% url 'add_todo' %}" method="post">
-      {% csrf_token %}
-      <label for="title_name">Title:</label><br />
-      <input type="text" id="title_name" name="title_name" /><br />
-      <label for="todo_description">Description:</label><br />
-      <textarea id="todo_description" name="todo_description"></textarea><br />
-      <label for="todo_deadline">Deadline:</label><br />
-      <input type="date" id="todo_deadline" name="todo_deadline" /><br />
-      <input type="submit" value="Add Todo" />
-    </form>
-    <a href="{% url 'todo_list' %}">Back to Todo List</a>
+    <div class="container">
+      <h1 class="my-4">Add Todo</h1>
+      <form action="{% url 'add_todo' %}" method="post" class="mb-4">
+        {% csrf_token %}
+        <div class="form-group">
+          <label for="title_name">Title:</label>
+          <input
+            type="text"
+            id="title_name"
+            name="title_name"
+            class="form-control"
+          />
+        </div>
+        <div class="form-group">
+          <label for="todo_description">Description:</label>
+          <textarea
+            id="todo_description"
+            name="todo_description"
+            class="form-control"
+          ></textarea>
+        </div>
+        <div class="form-group">
+          <label for="todo_deadline">Deadline:</label>
+          <input
+            type="date"
+            id="todo_deadline"
+            name="todo_deadline"
+            class="form-control"
+          />
+        </div>
+        <input type="submit" value="Add Todo" class="btn btn-primary" />
+      </form>
+      <a href="{% url 'todo_list' %}" class="btn btn-secondary"
+        >Back to Todo List</a
+      >
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>
